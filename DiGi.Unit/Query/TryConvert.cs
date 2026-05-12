@@ -87,7 +87,6 @@ namespace DiGi.Unit
             }
             catch
             {
-
             }
 
             return false;

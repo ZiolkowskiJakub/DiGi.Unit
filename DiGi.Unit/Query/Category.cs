@@ -6,7 +6,7 @@ namespace DiGi.Unit
     {
         public static Classes.Category? Category(this Enum? @enum)
         {
-            if(@enum is null)
+            if (@enum is null)
             {
                 return null;
             }
