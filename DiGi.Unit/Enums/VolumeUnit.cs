@@ -3,8 +3,8 @@
     [Classes.Category(UnitCategory.Volume)]
     public enum VolumeUnit
     {
-        [Classes.FactorUnit("Cubric milimeter", "mm³", 0.00001)] SquareMilimeter,
-        [Classes.FactorUnit("Cubric meter", "m³", 1.0)] SquareMeter,
-        [Classes.FactorUnit("Cubric kilometer", "km³", 1000000)] SquareKilometer,
+        [Classes.FactorUnit("Cubic millimeter", "mm³", 1e-9)] CubicMillimeter,
+        [Classes.FactorUnit("Cubic meter", "m³", 1.0)] CubicMeter,
+        [Classes.FactorUnit("Cubic kilometer", "km³", 1e+9)] CubicKilometer,
     }
 }

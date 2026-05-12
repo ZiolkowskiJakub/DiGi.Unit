@@ -8,7 +8,7 @@ using System.Text.Json.Serialization;
 namespace DiGi.Unit.Classes
 {
     [AttributeUsage(AttributeTargets.Enum, AllowMultiple = true, Inherited = true)]
-    public class Category : Attribute, ISerializableObject, INamedObject
+    public sealed class Category : Attribute, ISerializableObject, INamedObject
     {
         public Category(UnitCategory unitCategory)
         {
@@ -50,21 +50,6 @@ namespace DiGi.Unit.Classes
             }
         }
 
-        public ISerializableObject? Clone()
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool FromJsonObject(JsonObject? jsonObject)
-        {
-            throw new NotImplementedException();
-        }
-
-        public JsonObject? ToJsonObject()
-        {
-            throw new NotImplementedException();
-        }
-
         public static implicit operator Category(UnitCategory unitCategory)
         {
             return new Category(unitCategory);
@@ -73,6 +58,21 @@ namespace DiGi.Unit.Classes
         public static implicit operator Category(string name)
         {
             return new Category(name);
+        }
+
+        public ISerializableObject? Clone()
+        {
+            return new Category(this);
+        }
+
+        public bool FromJsonObject(JsonObject? jsonObject)
+        {
+            return Modify.FromJsonObject(this, jsonObject);
+        }
+
+        public JsonObject? ToJsonObject()
+        {
+            return Core.Convert.ToJson(this);
         }
     }
 }

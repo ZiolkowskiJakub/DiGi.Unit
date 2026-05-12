@@ -35,5 +35,15 @@ namespace DiGi.Unit.Classes
         {
             return new FactorUnit(this);
         }
+
+        public override double From(double value)
+        {
+            return value * Factor;
+        }
+
+        public override double To(double value)
+        {
+            return value / Factor;
+        }
     }
 }

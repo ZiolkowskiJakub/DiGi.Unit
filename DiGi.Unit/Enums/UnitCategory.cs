@@ -11,6 +11,7 @@ namespace DiGi.Unit.Enums
         [Description("Volume")] Volume,
         [Description("Temperature")] Temperature,
         [Description("Time")] Time,
+        [Description("Power Density")] PowerDensity,
         [Description("Other")] Other,
     }
 }

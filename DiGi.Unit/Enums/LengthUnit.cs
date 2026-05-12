@@ -7,7 +7,7 @@
         [Classes.FactorUnit("Meter", "m", 1.0)] Meter,
         [Classes.FactorUnit("Kilometer", "km", 1000)] Kilometer,
 
-        [Classes.FactorUnit("Feet", "ft", 1.0)] Feet,
-        [Classes.FactorUnit("Inch", "in", 1.0)] Inch,
+        [Classes.FactorUnit("Foot", "ft", 0.3048)] Feet,
+        [Classes.FactorUnit("Inch", "in", 0.0254)] Inch,
     }
 }

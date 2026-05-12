@@ -46,5 +46,9 @@ namespace DiGi.Unit.Classes
         {
             return Core.Convert.ToJson(this);
         }
+
+        public abstract double From(double value);
+
+        public abstract double To(double value);
     }
 }
