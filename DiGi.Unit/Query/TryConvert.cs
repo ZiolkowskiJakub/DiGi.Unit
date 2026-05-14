@@ -5,7 +5,7 @@ namespace DiGi.Unit
 {
     public static partial class Query
     {
-        public static bool TryConvert(double value, Enum? from, Enum? to, out double? result)
+        public static bool TryConvert(double value, Classes.Unit? from, Classes.Unit? to, out double? result)
         {
             result = null;
 
@@ -14,13 +14,13 @@ namespace DiGi.Unit
                 return false;
             }
 
-            Category? category_From = Category(from);
+            CategoryAttribute? category_From = from.CategoryAttribute;
             if (category_From is null)
             {
                 return false;
             }
 
-            Category? category_To = Category(to);
+            CategoryAttribute? category_To = to.CategoryAttribute;
             if (category_To is null)
             {
                 return false;
@@ -31,13 +31,65 @@ namespace DiGi.Unit
                 return false;
             }
 
-            Classes.Unit? unit_From = Unit(from);
+            UnitAttribute? unit_From = from.UnitAttribute;
             if (unit_From is null)
             {
                 return false;
             }
 
-            Classes.Unit? unit_To = Unit(to);
+            UnitAttribute? unit_To = to.UnitAttribute;
+            if (unit_To is null)
+            {
+                return false;
+            }
+
+            return TryConvert(value, unit_From, unit_To, out result);
+        }
+
+        public static bool TryConvert(double value, Classes.Unit? from, Classes.Unit? to, out double? result, double tolerance)
+        {
+            if (!TryConvert(value, from, to, out result) || result is null)
+            {
+                return false;
+            }
+
+            result = Core.Query.Round(result.Value, tolerance);
+            return true;
+        }
+
+        public static bool TryConvert(double value, Enum? from, Enum? to, out double? result)
+        {
+            result = null;
+
+            if (from is null || to is null)
+            {
+                return false;
+            }
+
+            CategoryAttribute? category_From = CategoryAttribute(from);
+            if (category_From is null)
+            {
+                return false;
+            }
+
+            CategoryAttribute? category_To = CategoryAttribute(to);
+            if (category_To is null)
+            {
+                return false;
+            }
+
+            if (!category_From.Equals(category_To))
+            {
+                return false;
+            }
+
+            UnitAttribute? unit_From = UnitAttribute(from);
+            if (unit_From is null)
+            {
+                return false;
+            }
+
+            UnitAttribute? unit_To = UnitAttribute(to);
             if (unit_To is null)
             {
                 return false;
@@ -57,7 +109,7 @@ namespace DiGi.Unit
             return true;
         }
 
-        public static bool TryConvert(double value, Classes.Unit? from, Classes.Unit? to, out double? result)
+        public static bool TryConvert(double value, UnitAttribute? from, UnitAttribute? to, out double? result)
         {
             result = null;
 
@@ -92,7 +144,7 @@ namespace DiGi.Unit
             return false;
         }
 
-        public static bool TryConvert(double value, Classes.Unit? from, Classes.Unit? to, out double? result, double tolerance)
+        public static bool TryConvert(double value, UnitAttribute? from, UnitAttribute? to, out double? result, double tolerance)
         {
             if (!TryConvert(value, from, to, out result) || result is null)
             {

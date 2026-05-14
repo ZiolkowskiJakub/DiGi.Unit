@@ -6,20 +6,20 @@ using System.Text.Json.Serialization;
 namespace DiGi.Unit.Classes
 {
     [AttributeUsage(AttributeTargets.Field, AllowMultiple = true, Inherited = true)]
-    public class LinearUnit : FactorUnit
+    public class LinearUnitAttribute : FactorUnitAttribute
     {
-        public LinearUnit(string? name, string? symbol, double factor, double offset)
+        public LinearUnitAttribute(string? name, string? symbol, double factor, double offset)
             : base(name, symbol, factor)
         {
             Offset = offset;
         }
 
-        public LinearUnit(JsonObject jsonObject)
+        public LinearUnitAttribute(JsonObject jsonObject)
             : base(jsonObject)
         {
         }
 
-        public LinearUnit(LinearUnit linearUnit)
+        public LinearUnitAttribute(LinearUnitAttribute linearUnit)
             : base(linearUnit)
         {
             if (linearUnit is not null)
@@ -33,7 +33,7 @@ namespace DiGi.Unit.Classes
 
         public override ISerializableObject? Clone()
         {
-            return new LinearUnit(this);
+            return new LinearUnitAttribute(this);
         }
 
         public override double From(double value)

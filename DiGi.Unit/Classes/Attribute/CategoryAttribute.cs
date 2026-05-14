@@ -8,19 +8,19 @@ using System.Text.Json.Serialization;
 namespace DiGi.Unit.Classes
 {
     [AttributeUsage(AttributeTargets.Enum, AllowMultiple = true, Inherited = true)]
-    public sealed class Category : Attribute, ISerializableObject, INamedObject
+    public sealed class CategoryAttribute : Attribute, ISerializableObject, INamedObject
     {
-        public Category(UnitCategory unitCategory)
+        public CategoryAttribute(UnitCategory unitCategory)
         {
             Name = unitCategory.ToString() ?? Enums.UnitCategory.Undefined.ToString();
         }
 
-        public Category(JsonObject jsonObject)
+        public CategoryAttribute(JsonObject jsonObject)
         {
             FromJsonObject(jsonObject);
         }
 
-        public Category(Category category)
+        public CategoryAttribute(CategoryAttribute category)
         {
             if (category is not null)
             {
@@ -50,19 +50,19 @@ namespace DiGi.Unit.Classes
             }
         }
 
-        public static implicit operator Category(UnitCategory unitCategory)
+        public static implicit operator CategoryAttribute(UnitCategory unitCategory)
         {
-            return new Category(unitCategory);
+            return new CategoryAttribute(unitCategory);
         }
 
-        public static implicit operator Category(string name)
+        public static implicit operator CategoryAttribute(string name)
         {
-            return new Category(name);
+            return new CategoryAttribute(name);
         }
 
         public ISerializableObject? Clone()
         {
-            return new Category(this);
+            return new CategoryAttribute(this);
         }
 
         public bool FromJsonObject(JsonObject? jsonObject)

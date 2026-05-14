@@ -1,54 +1,137 @@
-﻿using DiGi.Core;
+﻿using DiGi.Core.Classes;
 using DiGi.Core.Interfaces;
-using System;
-using System.Text.Json.Nodes;
+using DiGi.Unit.Enums;
 using System.Text.Json.Serialization;
 
 namespace DiGi.Unit.Classes
 {
-    [AttributeUsage(AttributeTargets.Field, AllowMultiple = true, Inherited = true)]
-    public abstract class Unit : Attribute, ISerializableObject, INamedObject
+    public class Unit : SerializableObject, INamedObject
     {
-        public Unit(string? name, string? symbol)
+        [JsonInclude, JsonPropertyName(nameof(Enum))]
+        private System.Enum @enum;
+
+        [JsonIgnore]
+        private CategoryAttribute? categoryAttribute;
+
+        [JsonIgnore]
+        private UnitAttribute? unitAttribute;
+
+        public Unit(System.Enum @enum)
         {
-            Name = name;
-            Symbol = symbol;
+            this.@enum = @enum;
         }
 
-        public Unit(JsonObject jsonObject)
+        public CategoryAttribute? CategoryAttribute
         {
-            FromJsonObject(jsonObject);
-        }
-
-        public Unit(Unit unit)
-        {
-            if (unit is not null)
+            get
             {
-                Name = unit.Name;
-                Symbol = unit.Symbol;
+                categoryAttribute ??= Query.CategoryAttribute(@enum);
+                return categoryAttribute;
             }
         }
 
-        [JsonInclude, JsonPropertyName(nameof(Name))]
-        public string? Name { get; }
-
-        [JsonInclude, JsonPropertyName(nameof(Symbol))]
-        public string? Symbol { get; }
-
-        public abstract ISerializableObject? Clone();
-
-        public bool FromJsonObject(JsonObject? jsonObject)
+        public System.Enum Enum
         {
-            return Modify.FromJsonObject(this, jsonObject);
+            get
+            {
+                return @enum;
+            }
         }
 
-        public JsonObject? ToJsonObject()
+        public string? Name
         {
-            return Core.Convert.ToJson(this);
+            get
+            {
+                return UnitAttribute?.Name;
+            }
         }
 
-        public abstract double From(double value);
+        public string? Symbol
+        {
+            get
+            {
+                return UnitAttribute?.Symbol;
+            }
+        }
 
-        public abstract double To(double value);
+        public UnitAttribute? UnitAttribute
+        {
+            get
+            {
+                unitAttribute ??= Query.UnitAttribute(@enum);
+                return unitAttribute;
+            }
+        }
+
+        public UnitCategory UnitCategory
+        {
+            get
+            {
+                return CategoryAttribute?.UnitCategory ?? UnitCategory.Undefined;
+            }
+        }
+
+        public double From(double value)
+        {
+            if (UnitAttribute is not null)
+            {
+                return UnitAttribute.From(value);
+            }
+
+            return double.NaN;
+        }
+
+        public TEnum? GetEnum<TEnum>() where TEnum : System.Enum
+        {
+            if (@enum is TEnum enum_Temp)
+            {
+                return enum_Temp;
+            }
+
+            return default;
+        }
+
+        public double To(double value)
+        {
+            if (UnitAttribute is not null)
+            {
+                return UnitAttribute.From(value);
+            }
+
+            return double.NaN;
+        }
+
+        public bool TryGetEnum<TEnum>(out TEnum? @enum) where TEnum : System.Enum
+        {
+            @enum = default;
+
+            if (this.@enum is TEnum enum_Temp)
+            {
+                @enum = enum_Temp;
+                return true;
+            }
+
+            return false;
+        }
+
+        public bool IsValid()
+        {
+            return CategoryAttribute is not null && UnitAttribute is not null;
+        }
+
+        public static implicit operator System.Enum?(Unit unit)
+        {
+            return unit?.Enum;
+        }
+
+        public static implicit operator Unit?(System.Enum? @enum)
+        {
+            if (@enum is null)
+            {
+                return null;
+            }
+
+            return new Unit(@enum);
+        }
     }
 }
