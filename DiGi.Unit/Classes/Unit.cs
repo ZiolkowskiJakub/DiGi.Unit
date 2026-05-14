@@ -8,7 +8,7 @@ namespace DiGi.Unit.Classes
     public class Unit : SerializableObject, INamedObject
     {
         [JsonInclude, JsonPropertyName(nameof(Enum))]
-        private System.Enum @enum;
+        private readonly System.Enum @enum;
 
         [JsonIgnore]
         private CategoryAttribute? categoryAttribute;

@@ -26,6 +26,11 @@ namespace DiGi.Unit
 
         public static double Convert(double value, Enum? from, Enum? to, double defaultValue, double tolerance)
         {
+            if(from is null || to is null)
+            {
+                return defaultValue;
+            }
+
             if (!TryConvert(value, from, to, out double? result, tolerance) || result is null)
             {
                 return defaultValue;
@@ -36,6 +41,11 @@ namespace DiGi.Unit
 
         public static double Convert(double value, Enum? from, Enum? to, double defaultValue)
         {
+            if (from is null || to is null)
+            {
+                return defaultValue;
+            }
+
             if (!TryConvert(value, from, to, out double? result) || result is null)
             {
                 return defaultValue;
