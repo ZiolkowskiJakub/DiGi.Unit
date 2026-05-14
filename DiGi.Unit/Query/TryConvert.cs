@@ -57,7 +57,7 @@ namespace DiGi.Unit
             return true;
         }
 
-        public static bool TryConvert(double value, Enum? from, Enum? to, out double? result)
+        public static bool TryConvert(double value, Enum from, Enum to, out double? result)
         {
             result = null;
 
@@ -98,7 +98,7 @@ namespace DiGi.Unit
             return TryConvert(value, unit_From, unit_To, out result);
         }
 
-        public static bool TryConvert(double value, Enum? from, Enum? to, out double? result, double tolerance)
+        public static bool TryConvert(double value, Enum from, Enum to, out double? result, double tolerance)
         {
             if (!TryConvert(value, from, to, out result) || result is null)
             {

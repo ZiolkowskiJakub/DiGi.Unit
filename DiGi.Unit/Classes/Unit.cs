@@ -119,12 +119,12 @@ namespace DiGi.Unit.Classes
             return CategoryAttribute is not null && UnitAttribute is not null;
         }
 
-        public static implicit operator System.Enum?(Unit unit)
+        public static explicit operator System.Enum?(Unit unit)
         {
             return unit?.Enum;
         }
 
-        public static implicit operator Unit?(System.Enum? @enum)
+        public static explicit operator Unit?(System.Enum? @enum)
         {
             if (@enum is null)
             {
