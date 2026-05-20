@@ -13,6 +13,7 @@ namespace DiGi.Unit.Enums
         [Description("Time")] Time,
         [Description("Power Density")] PowerDensity,
         [Description("Density")] Density,
+        [Description("Angle")] Angle,
         [Description("Other")] Other,
     }
 }

@@ -38,6 +38,7 @@ namespace DiGi.Unit.Classes
             }
         }
 
+        [JsonIgnore]
         public string? Name
         {
             get
@@ -46,6 +47,7 @@ namespace DiGi.Unit.Classes
             }
         }
 
+        [JsonIgnore]
         public string? Symbol
         {
             get
@@ -54,6 +56,7 @@ namespace DiGi.Unit.Classes
             }
         }
 
+        [JsonIgnore]
         public UnitAttribute? UnitAttribute
         {
             get
@@ -63,12 +66,28 @@ namespace DiGi.Unit.Classes
             }
         }
 
+        [JsonIgnore]
         public UnitCategory UnitCategory
         {
             get
             {
                 return CategoryAttribute?.UnitCategory ?? UnitCategory.Undefined;
             }
+        }
+
+        public static explicit operator System.Enum?(Unit unit)
+        {
+            return unit?.Enum;
+        }
+
+        public static explicit operator Unit?(System.Enum? @enum)
+        {
+            if (@enum is null)
+            {
+                return null;
+            }
+
+            return new Unit(@enum);
         }
 
         public double From(double value)
@@ -89,6 +108,11 @@ namespace DiGi.Unit.Classes
             }
 
             return default;
+        }
+
+        public bool IsValid()
+        {
+            return CategoryAttribute is not null && UnitAttribute is not null;
         }
 
         public double To(double value)
@@ -112,26 +136,6 @@ namespace DiGi.Unit.Classes
             }
 
             return false;
-        }
-
-        public bool IsValid()
-        {
-            return CategoryAttribute is not null && UnitAttribute is not null;
-        }
-
-        public static explicit operator System.Enum?(Unit unit)
-        {
-            return unit?.Enum;
-        }
-
-        public static explicit operator Unit?(System.Enum? @enum)
-        {
-            if (@enum is null)
-            {
-                return null;
-            }
-
-            return new Unit(@enum);
         }
     }
 }
