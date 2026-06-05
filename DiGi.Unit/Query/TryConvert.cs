@@ -5,6 +5,14 @@ namespace DiGi.Unit
 {
     public static partial class Query
     {
+        /// <summary>
+        /// Attempts to convert a numeric value from one unit to another.
+        /// </summary>
+        /// <param name="value">The numeric value to be converted.</param>
+        /// <param name="from">The source unit.</param>
+        /// <param name="to">The target unit.</param>
+        /// <param name="result">When this method returns, contains the converted value if successful; otherwise, null.</param>
+        /// <returns>True if the conversion was successful; otherwise, false.</returns>
         public static bool TryConvert(double value, Classes.Unit? from, Classes.Unit? to, out double? result)
         {
             result = null;
@@ -46,6 +54,15 @@ namespace DiGi.Unit
             return TryConvert(value, unit_From, unit_To, out result);
         }
 
+        /// <summary>
+        /// Attempts to convert a numeric value from one unit to another and rounds the result based on the specified tolerance.
+        /// </summary>
+        /// <param name="value">The numeric value to be converted.</param>
+        /// <param name="from">The source unit.</param>
+        /// <param name="to">The target unit.</param>
+        /// <param name="result">When this method returns, contains the converted and rounded value if successful; otherwise, null.</param>
+        /// <param name="tolerance">The precision used to round the resulting value.</param>
+        /// <returns>True if the conversion was successful; otherwise, false.</returns>
         public static bool TryConvert(double value, Classes.Unit? from, Classes.Unit? to, out double? result, double tolerance)
         {
             if (!TryConvert(value, from, to, out result) || result is null)
@@ -57,6 +74,14 @@ namespace DiGi.Unit
             return true;
         }
 
+        /// <summary>
+        /// Attempts to convert a numeric value between two units specified as enum values.
+        /// </summary>
+        /// <param name="value">The numeric value to be converted.</param>
+        /// <param name="from">The source unit represented as an Enum.</param>
+        /// <param name="to">The target unit represented as an Enum.</param>
+        /// <param name="result">When this method returns, contains the converted value if successful; otherwise, null.</param>
+        /// <returns>True if the conversion was successful; otherwise, false.</returns>
         public static bool TryConvert(double value, Enum from, Enum to, out double? result)
         {
             result = null;
@@ -98,6 +123,15 @@ namespace DiGi.Unit
             return TryConvert(value, unit_From, unit_To, out result);
         }
 
+        /// <summary>
+        /// Attempts to convert a numeric value between two units specified as enum values and rounds the result based on the specified tolerance.
+        /// </summary>
+        /// <param name="value">The numeric value to be converted.</param>
+        /// <param name="from">The source unit represented as an Enum.</param>
+        /// <param name="to">The target unit represented as an Enum.</param>
+        /// <param name="result">When this method returns, contains the converted and rounded value if successful; otherwise, null.</param>
+        /// <param name="tolerance">The precision used to round the resulting value.</param>
+        /// <returns>True if the conversion was successful; otherwise, false.</returns>
         public static bool TryConvert(double value, Enum from, Enum to, out double? result, double tolerance)
         {
             if (!TryConvert(value, from, to, out result) || result is null)
@@ -109,6 +143,14 @@ namespace DiGi.Unit
             return true;
         }
 
+        /// <summary>
+        /// Attempts to convert a numeric value using the provided unit attributes.
+        /// </summary>
+        /// <param name="value">The numeric value to be converted.</param>
+        /// <param name="from">The source unit attribute.</param>
+        /// <param name="to">The target unit attribute.</param>
+        /// <param name="result">When this method returns, contains the converted value if successful; otherwise, null.</param>
+        /// <returns>True if the conversion was successful; otherwise, false.</returns>
         public static bool TryConvert(double value, UnitAttribute? from, UnitAttribute? to, out double? result)
         {
             result = null;
@@ -144,6 +186,15 @@ namespace DiGi.Unit
             return false;
         }
 
+        /// <summary>
+        /// Attempts to convert a numeric value using the provided unit attributes and rounds the result based on the specified tolerance.
+        /// </summary>
+        /// <param name="value">The numeric value to be converted.</param>
+        /// <param name="from">The source unit attribute.</param>
+        /// <param name="to">The target unit attribute.</param>
+        /// <param name="result">When this method returns, contains the converted and rounded value if successful; otherwise, null.</param>
+        /// <param name="tolerance">The precision used to round the resulting value.</param>
+        /// <returns>True if the conversion was successful; otherwise, false.</returns>
         public static bool TryConvert(double value, UnitAttribute? from, UnitAttribute? to, out double? result, double tolerance)
         {
             if (!TryConvert(value, from, to, out result) || result is null)
