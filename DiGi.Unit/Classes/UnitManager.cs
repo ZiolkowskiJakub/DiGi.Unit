@@ -75,7 +75,7 @@ namespace DiGi.Unit.Classes
         /// <returns>A list of all successfully added <see cref="Unit"/> objects, or null if the assembly is null.</returns>
         public List<Unit>? AddRange(Assembly? assembly)
         {
-            if(assembly is null)
+            if (assembly is null)
             {
                 return null;
             }
@@ -159,14 +159,14 @@ namespace DiGi.Unit.Classes
                 return result;
             }
 
-            if(!update)
+            if (!update)
             {
                 return null;
             }
 
             return Add(@enum);
         }
-        
+
         /// <summary>
         /// Retrieves the unit attribute associated with the specified unit enum.
         /// </summary>
@@ -183,7 +183,7 @@ namespace DiGi.Unit.Classes
 
             return unit.UnitAttribute;
         }
-        
+
         /// <summary>
         /// Converts a base representation value to the specified unit.
         /// </summary>

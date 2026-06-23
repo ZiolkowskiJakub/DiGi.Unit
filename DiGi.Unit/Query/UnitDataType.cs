@@ -9,10 +9,10 @@ namespace DiGi.Unit
         /// Determines the corresponding <see cref="UnitDataType"/> for a given <see cref="Type"/>.
         /// </summary>
         /// <param name="type">The type to evaluate.</param>
-        /// <returns>The matching <see cref="UnitDataType"/> value, or <see cref="Enums.UnitDataType.Undefined"/> if the type is null or not a recognized numeric type.</returns>
+        /// <returns>The matching <see cref="UnitDataType"/> value, or <see cref="UnitDataType.Undefined"/> if the type is null or not a recognized numeric type.</returns>
         public static UnitDataType UnitDataType(this Type? type)
         {
-            if(type is null)
+            if (type is null)
             {
                 return Enums.UnitDataType.Undefined;
             }

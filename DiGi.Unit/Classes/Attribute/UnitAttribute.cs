@@ -7,7 +7,7 @@ using System.Text.Json.Serialization;
 namespace DiGi.Unit.Classes
 {
     /// <summary>
-    /// Base abstract class for unit attributes, implementing <see cref="ISerializableObject"/> and <see cref="INamedObject"/> to provide 
+    /// Base abstract class for unit attributes, implementing <see cref="ISerializableObject"/> and <see cref="INamedObject"/> to provide
     /// standardization for units of measurement including serialization and conversion logic.
     /// </summary>
     [AttributeUsage(AttributeTargets.Field, AllowMultiple = true, Inherited = true)]
@@ -65,7 +65,7 @@ namespace DiGi.Unit.Classes
         public abstract ISerializableObject? Clone();
 
         /// <summary>
-        /// Populates the properties of this object from a <see cref="JsonObject"/> using <see cref="Core.Modify.FromJsonObject"/>.
+        /// Populates the properties of this object from a <see cref="JsonObject"/> using <see cref="Modify.FromJsonObject"/>.
         /// </summary>
         /// <param name="jsonObject">The JSON object to populate from.</param>
         /// <returns>True if the object was successfully populated; otherwise, false.</returns>

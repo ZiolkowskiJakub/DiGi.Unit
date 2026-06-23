@@ -1,4 +1,4 @@
-﻿using System.ComponentModel;
+using System.ComponentModel;
 
 namespace DiGi.Unit.Enums
 {
@@ -52,6 +52,81 @@ namespace DiGi.Unit.Enums
         /// Units related to angle measurement.
         /// </summary>
         [Description("Angle")] Angle,
+
+        /// <summary>
+        /// Units related to mass measurement.
+        /// </summary>
+        [Description("Mass")] Mass,
+
+        /// <summary>
+        /// Units related to electric current measurement.
+        /// </summary>
+        [Description("Electric Current")] ElectricCurrent,
+
+        /// <summary>
+        /// Units related to amount of substance measurement.
+        /// </summary>
+        [Description("Amount of Substance")] AmountOfSubstance,
+
+        /// <summary>
+        /// Units related to luminous intensity measurement.
+        /// </summary>
+        [Description("Luminous Intensity")] LuminousIntensity,
+
+        /// <summary>
+        /// Units related to force measurement.
+        /// </summary>
+        [Description("Force")] Force,
+
+        /// <summary>
+        /// Units related to pressure measurement.
+        /// </summary>
+        [Description("Pressure")] Pressure,
+
+        /// <summary>
+        /// Units related to energy measurement.
+        /// </summary>
+        [Description("Energy")] Energy,
+
+        /// <summary>
+        /// Units related to power measurement.
+        /// </summary>
+        [Description("Power")] Power,
+
+        /// <summary>
+        /// Units related to electric potential measurement.
+        /// </summary>
+        [Description("Electric Potential")] ElectricPotential,
+
+        /// <summary>
+        /// Units related to electric resistance measurement.
+        /// </summary>
+        [Description("Electric Resistance")] ElectricResistance,
+
+        /// <summary>
+        /// Units related to frequency measurement.
+        /// </summary>
+        [Description("Frequency")] Frequency,
+
+        /// <summary>
+        /// Units related to speed measurement.
+        /// </summary>
+        [Description("Speed")] Speed,
+
+        /// <summary>
+        /// Units related to acceleration measurement.
+        /// </summary>
+        [Description("Acceleration")] Acceleration,
+
+        /// <summary>
+        /// Units related to luminous flux measurement.
+        /// </summary>
+        [Description("Luminous Flux")] LuminousFlux,
+
+        /// <summary>
+        /// Units related to illuminance measurement.
+        /// </summary>
+        [Description("Illuminance")] Illuminance,
 
         /// <summary>
         /// Other unit categories not explicitly defined.

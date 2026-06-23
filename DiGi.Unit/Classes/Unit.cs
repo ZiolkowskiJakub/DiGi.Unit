@@ -1,4 +1,4 @@
-﻿using DiGi.Core.Classes;
+using DiGi.Core.Classes;
 using DiGi.Core.Interfaces;
 using DiGi.Unit.Enums;
 using System.Text.Json.Serialization;
@@ -173,7 +173,7 @@ namespace DiGi.Unit.Classes
         {
             if (UnitAttribute is not null)
             {
-                return UnitAttribute.From(value);
+                return UnitAttribute.To(value);
             }
 
             return double.NaN;

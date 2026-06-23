@@ -1,4 +1,4 @@
-﻿namespace DiGi.Unit.Enums
+namespace DiGi.Unit.Enums
 {
     /// <summary>
     /// Defines the supported units of measurement for angles.
@@ -9,7 +9,7 @@
         /// <summary>
         /// Represents an angle measured in degrees.
         /// </summary>
-        [Classes.FactorUnit("Degree", "°", 57.295779513)] Degree,
+        [Classes.FactorUnit("Degree", "°", System.Math.PI / 180.0)] Degree,
 
         /// <summary>
         /// Represents an angle measured in radians.

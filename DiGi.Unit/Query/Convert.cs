@@ -52,7 +52,7 @@ namespace DiGi.Unit
         /// <returns>The converted value, or <paramref name="defaultValue"/> if conversion fails.</returns>
         public static double Convert(double value, Enum? from, Enum? to, double defaultValue, double tolerance)
         {
-            if(from is null || to is null)
+            if (from is null || to is null)
             {
                 return defaultValue;
             }

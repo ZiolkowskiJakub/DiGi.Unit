@@ -1,4 +1,4 @@
-﻿using System.ComponentModel;
+using System.ComponentModel;
 
 namespace DiGi.Unit.Enums
 {
@@ -12,9 +12,10 @@ namespace DiGi.Unit.Enums
         /// Kilogram per cubic meter (kg/m3).
         /// </summary>
         [Classes.FactorUnit("Kilogram per cubic meter", "kg/m3", 1.0)] KilogramPerCubicMeter,
+
         /// <summary>
         /// Gram per cubic centimeter (g/cm3).
         /// </summary>
-        [Classes.FactorUnit("Gram per cubic centimeter", "g/cm3", 0.001)] GramPerCubicCentimeter,
+        [Classes.FactorUnit("Gram per cubic centimeter", "g/cm3", 1000.0)] GramPerCubicCentimeter,
     }
 }
