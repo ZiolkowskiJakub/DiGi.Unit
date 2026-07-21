@@ -94,6 +94,16 @@ namespace DiGi.Unit.Enums
         [Description("Force")] Force,
 
         /// <summary>
+        /// Units related to stiffness measurement.
+        /// </summary>
+        [Description("Stiffness")] Stiffness,
+
+        /// <summary>
+        /// Units related to compliance measurement.
+        /// </summary>
+        [Description("Compliance")] Compliance,
+
+        /// <summary>
         /// Units related to pressure measurement.
         /// </summary>
         [Description("Pressure")] Pressure,

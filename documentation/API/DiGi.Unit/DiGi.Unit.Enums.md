@@ -131,6 +131,47 @@ Square foot\.
 
 Square inch\.
 
+<a name='DiGi.Unit.Enums.ComplianceUnit'></a>
+
+## ComplianceUnit Enum
+
+Defines the supported units for structural compliance measurement \(displacement per unit force, or flexibility\)\.
+
+```csharp
+public enum ComplianceUnit
+```
+### Fields
+
+<a name='DiGi.Unit.Enums.ComplianceUnit.MeterPerNewton'></a>
+
+`MeterPerNewton` 0
+
+Meter per newton \(m/N\)\.
+
+<a name='DiGi.Unit.Enums.ComplianceUnit.MeterPerKilonewton'></a>
+
+`MeterPerKilonewton` 1
+
+Meter per kilonewton \(m/kN\)\.
+
+<a name='DiGi.Unit.Enums.ComplianceUnit.MillimeterPerNewton'></a>
+
+`MillimeterPerNewton` 2
+
+Millimeter per newton \(mm/N\)\.
+
+<a name='DiGi.Unit.Enums.ComplianceUnit.MillimeterPerKilonewton'></a>
+
+`MillimeterPerKilonewton` 3
+
+Millimeter per kilonewton \(mm/kN\)\.
+
+<a name='DiGi.Unit.Enums.ComplianceUnit.InchPerPoundForce'></a>
+
+`InchPerPoundForce` 4
+
+Inch per pound\-force \(in/lbf\)\.
+
 <a name='DiGi.Unit.Enums.DensityUnit'></a>
 
 ## DensityUnit Enum
@@ -845,6 +886,59 @@ Miles per hour unit of speed\.
 
 Feet per second unit of speed\.
 
+<a name='DiGi.Unit.Enums.StiffnessUnit'></a>
+
+## StiffnessUnit Enum
+
+Defines the supported units for structural stiffness measurement \(force per unit displacement\)\.
+
+```csharp
+public enum StiffnessUnit
+```
+### Fields
+
+<a name='DiGi.Unit.Enums.StiffnessUnit.NewtonPerMeter'></a>
+
+`NewtonPerMeter` 0
+
+Newton per meter \(N/m\)\.
+
+<a name='DiGi.Unit.Enums.StiffnessUnit.KilonewtonPerMeter'></a>
+
+`KilonewtonPerMeter` 1
+
+Kilonewton per meter \(kN/m\)\.
+
+<a name='DiGi.Unit.Enums.StiffnessUnit.MeganewtonPerMeter'></a>
+
+`MeganewtonPerMeter` 2
+
+Meganewton per meter \(MN/m\)\.
+
+<a name='DiGi.Unit.Enums.StiffnessUnit.NewtonPerMillimeter'></a>
+
+`NewtonPerMillimeter` 3
+
+Newton per millimeter \(N/mm\)\.
+
+<a name='DiGi.Unit.Enums.StiffnessUnit.KilonewtonPerMillimeter'></a>
+
+`KilonewtonPerMillimeter` 4
+
+Kilonewton per millimeter \(kN/mm\)\.
+
+<a name='DiGi.Unit.Enums.StiffnessUnit.PoundForcePerInch'></a>
+
+`PoundForcePerInch` 5
+
+Pound\-force per inch \(lbf/in\)\.
+
+<a name='DiGi.Unit.Enums.StiffnessUnit.KipPerInch'></a>
+
+`KipPerInch` 6
+
+Kip per inch \(kip/in\)\.
+
 <a name='DiGi.Unit.Enums.TemperatureUnit'></a>
 
 ## TemperatureUnit Enum
@@ -1074,81 +1168,93 @@ Units related to luminous intensity measurement\.
 
 Units related to force measurement\.
 
+<a name='DiGi.Unit.Enums.UnitCategory.Stiffness'></a>
+
+`Stiffness` 17
+
+Units related to stiffness measurement\.
+
+<a name='DiGi.Unit.Enums.UnitCategory.Compliance'></a>
+
+`Compliance` 18
+
+Units related to compliance measurement\.
+
 <a name='DiGi.Unit.Enums.UnitCategory.Pressure'></a>
 
-`Pressure` 17
+`Pressure` 19
 
 Units related to pressure measurement\.
 
 <a name='DiGi.Unit.Enums.UnitCategory.Energy'></a>
 
-`Energy` 18
+`Energy` 20
 
 Units related to energy measurement\.
 
 <a name='DiGi.Unit.Enums.UnitCategory.Power'></a>
 
-`Power` 19
+`Power` 21
 
 Units related to power measurement\.
 
 <a name='DiGi.Unit.Enums.UnitCategory.ElectricPotential'></a>
 
-`ElectricPotential` 20
+`ElectricPotential` 22
 
 Units related to electric potential measurement\.
 
 <a name='DiGi.Unit.Enums.UnitCategory.ElectricResistance'></a>
 
-`ElectricResistance` 21
+`ElectricResistance` 23
 
 Units related to electric resistance measurement\.
 
 <a name='DiGi.Unit.Enums.UnitCategory.ElectricConductance'></a>
 
-`ElectricConductance` 22
+`ElectricConductance` 24
 
 Units related to electric conductance measurement\.
 
 <a name='DiGi.Unit.Enums.UnitCategory.ElectricConductivity'></a>
 
-`ElectricConductivity` 23
+`ElectricConductivity` 25
 
 Units related to electric conductivity measurement\.
 
 <a name='DiGi.Unit.Enums.UnitCategory.Frequency'></a>
 
-`Frequency` 24
+`Frequency` 26
 
 Units related to frequency measurement\.
 
 <a name='DiGi.Unit.Enums.UnitCategory.Speed'></a>
 
-`Speed` 25
+`Speed` 27
 
 Units related to speed measurement\.
 
 <a name='DiGi.Unit.Enums.UnitCategory.Acceleration'></a>
 
-`Acceleration` 26
+`Acceleration` 28
 
 Units related to acceleration measurement\.
 
 <a name='DiGi.Unit.Enums.UnitCategory.LuminousFlux'></a>
 
-`LuminousFlux` 27
+`LuminousFlux` 29
 
 Units related to luminous flux measurement\.
 
 <a name='DiGi.Unit.Enums.UnitCategory.Illuminance'></a>
 
-`Illuminance` 28
+`Illuminance` 30
 
 Units related to illuminance measurement\.
 
 <a name='DiGi.Unit.Enums.UnitCategory.Other'></a>
 
-`Other` 29
+`Other` 31
 
 Other unit categories not explicitly defined\.
 

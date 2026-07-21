@@ -269,6 +269,16 @@ namespace DiGi.Unit
                 return true;
             }
 
+            if (unitCategory_1 == Enums.UnitCategory.Stiffness && unitCategory_2 == Enums.UnitCategory.Compliance)
+            {
+                return true;
+            }
+
+            if (unitCategory_1 == Enums.UnitCategory.Compliance && unitCategory_2 == Enums.UnitCategory.Stiffness)
+            {
+                return true;
+            }
+
             return false;
         }
 
