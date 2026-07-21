@@ -312,6 +312,33 @@ The allowed margin of error for the conversion\.
 [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')  
 The converted value, or [defaultValue](DiGi.Unit.md#DiGi.Unit.Query.Convert(double,System.Enum,System.Enum,double,double).defaultValue 'DiGi\.Unit\.Query\.Convert\(double, System\.Enum, System\.Enum, double, double\)\.defaultValue') if conversion fails\.
 
+<a name='DiGi.Unit.Query.IsInverseCategoryPair(System.Nullable_DiGi.Unit.Enums.UnitCategory_,System.Nullable_DiGi.Unit.Enums.UnitCategory_)'></a>
+
+## Query\.IsInverseCategoryPair\(Nullable\<UnitCategory\>, Nullable\<UnitCategory\>\) Method
+
+Checks whether two unit categories form an inverse conversion pair \(e\.g\. ElectricConductance and ElectricResistance\)\.
+
+```csharp
+public static bool IsInverseCategoryPair(System.Nullable<DiGi.Unit.Enums.UnitCategory> unitCategory_1, System.Nullable<DiGi.Unit.Enums.UnitCategory> unitCategory_2);
+```
+#### Parameters
+
+<a name='DiGi.Unit.Query.IsInverseCategoryPair(System.Nullable_DiGi.Unit.Enums.UnitCategory_,System.Nullable_DiGi.Unit.Enums.UnitCategory_).unitCategory_1'></a>
+
+`unitCategory_1` [System\.Nullable&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.nullable-1 'System\.Nullable\`1')[UnitCategory](DiGi.Unit.Enums.md#DiGi.Unit.Enums.UnitCategory 'DiGi\.Unit\.Enums\.UnitCategory')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.nullable-1 'System\.Nullable\`1')
+
+The first unit category\.
+
+<a name='DiGi.Unit.Query.IsInverseCategoryPair(System.Nullable_DiGi.Unit.Enums.UnitCategory_,System.Nullable_DiGi.Unit.Enums.UnitCategory_).unitCategory_2'></a>
+
+`unitCategory_2` [System\.Nullable&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.nullable-1 'System\.Nullable\`1')[UnitCategory](DiGi.Unit.Enums.md#DiGi.Unit.Enums.UnitCategory 'DiGi\.Unit\.Enums\.UnitCategory')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.nullable-1 'System\.Nullable\`1')
+
+The second unit category\.
+
+#### Returns
+[System\.Boolean](https://learn.microsoft.com/en-us/dotnet/api/system.boolean 'System\.Boolean')  
+True if the categories form an inverse pair; otherwise, false\.
+
 <a name='DiGi.Unit.Query.TryConvert(double,DiGi.Unit.Classes.Unit,DiGi.Unit.Classes.Unit,System.Nullable_double_)'></a>
 
 ## Query\.TryConvert\(double, Unit, Unit, Nullable\<double\>\) Method
@@ -559,6 +586,45 @@ When this method returns, contains the converted and rounded value if successful
 `tolerance` [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
 
 The precision used to round the resulting value\.
+
+#### Returns
+[System\.Boolean](https://learn.microsoft.com/en-us/dotnet/api/system.boolean 'System\.Boolean')  
+True if the conversion was successful; otherwise, false\.
+
+<a name='DiGi.Unit.Query.TryConvertInverse(double,DiGi.Unit.Classes.UnitAttribute,DiGi.Unit.Classes.UnitAttribute,System.Nullable_double_)'></a>
+
+## Query\.TryConvertInverse\(double, UnitAttribute, UnitAttribute, Nullable\<double\>\) Method
+
+Attempts to perform an inverse unit conversion \(1 / baseValue\) between two unit attributes\.
+
+```csharp
+public static bool TryConvertInverse(double value, DiGi.Unit.Classes.UnitAttribute? unitAttribute_From, DiGi.Unit.Classes.UnitAttribute? unitAttribute_To, out System.Nullable<double> result);
+```
+#### Parameters
+
+<a name='DiGi.Unit.Query.TryConvertInverse(double,DiGi.Unit.Classes.UnitAttribute,DiGi.Unit.Classes.UnitAttribute,System.Nullable_double_).value'></a>
+
+`value` [System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')
+
+The numeric value to be converted\.
+
+<a name='DiGi.Unit.Query.TryConvertInverse(double,DiGi.Unit.Classes.UnitAttribute,DiGi.Unit.Classes.UnitAttribute,System.Nullable_double_).unitAttribute_From'></a>
+
+`unitAttribute_From` [UnitAttribute](DiGi.Unit.Classes.md#DiGi.Unit.Classes.UnitAttribute 'DiGi\.Unit\.Classes\.UnitAttribute')
+
+The source unit attribute\.
+
+<a name='DiGi.Unit.Query.TryConvertInverse(double,DiGi.Unit.Classes.UnitAttribute,DiGi.Unit.Classes.UnitAttribute,System.Nullable_double_).unitAttribute_To'></a>
+
+`unitAttribute_To` [UnitAttribute](DiGi.Unit.Classes.md#DiGi.Unit.Classes.UnitAttribute 'DiGi\.Unit\.Classes\.UnitAttribute')
+
+The target unit attribute\.
+
+<a name='DiGi.Unit.Query.TryConvertInverse(double,DiGi.Unit.Classes.UnitAttribute,DiGi.Unit.Classes.UnitAttribute,System.Nullable_double_).result'></a>
+
+`result` [System\.Nullable&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.nullable-1 'System\.Nullable\`1')[System\.Double](https://learn.microsoft.com/en-us/dotnet/api/system.double 'System\.Double')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.nullable-1 'System\.Nullable\`1')
+
+When this method returns, contains the converted inverse value if successful; otherwise, null\.
 
 #### Returns
 [System\.Boolean](https://learn.microsoft.com/en-us/dotnet/api/system.boolean 'System\.Boolean')  

@@ -1,4 +1,4 @@
-﻿using DiGi.Unit.Classes;
+using DiGi.Unit.Classes;
 using System;
 
 namespace DiGi.Unit
@@ -34,11 +34,6 @@ namespace DiGi.Unit
                 return false;
             }
 
-            if (!category_From.Equals(category_To))
-            {
-                return false;
-            }
-
             UnitAttribute? unit_From = from.UnitAttribute;
             if (unit_From is null)
             {
@@ -48,6 +43,16 @@ namespace DiGi.Unit
             UnitAttribute? unit_To = to.UnitAttribute;
             if (unit_To is null)
             {
+                return false;
+            }
+
+            if (!category_From.Equals(category_To))
+            {
+                if (IsInverseCategoryPair(category_From.UnitCategory, category_To.UnitCategory))
+                {
+                    return TryConvertInverse(value, unit_From, unit_To, out result);
+                }
+
                 return false;
             }
 
@@ -103,11 +108,6 @@ namespace DiGi.Unit
                 return false;
             }
 
-            if (!category_From.Equals(category_To))
-            {
-                return false;
-            }
-
             UnitAttribute? unit_From = UnitAttribute(from);
             if (unit_From is null)
             {
@@ -117,6 +117,16 @@ namespace DiGi.Unit
             UnitAttribute? unit_To = UnitAttribute(to);
             if (unit_To is null)
             {
+                return false;
+            }
+
+            if (!category_From.Equals(category_To))
+            {
+                if (IsInverseCategoryPair(category_From.UnitCategory, category_To.UnitCategory))
+                {
+                    return TryConvertInverse(value, unit_From, unit_To, out result);
+                }
+
                 return false;
             }
 
@@ -204,6 +214,104 @@ namespace DiGi.Unit
 
             result = Core.Query.Round(result.Value, tolerance);
             return true;
+        }
+
+        /// <summary>
+        /// Checks whether two unit categories form an inverse conversion pair (e.g. ElectricConductance and ElectricResistance).
+        /// </summary>
+        /// <param name="unitCategory_1">The first unit category.</param>
+        /// <param name="unitCategory_2">The second unit category.</param>
+        /// <returns>True if the categories form an inverse pair; otherwise, false.</returns>
+        public static bool IsInverseCategoryPair(Enums.UnitCategory? unitCategory_1, Enums.UnitCategory? unitCategory_2)
+        {
+            if (unitCategory_1 is null || unitCategory_2 is null)
+            {
+                return false;
+            }
+
+            if (unitCategory_1 == Enums.UnitCategory.ElectricConductance && unitCategory_2 == Enums.UnitCategory.ElectricResistance)
+            {
+                return true;
+            }
+
+            if (unitCategory_1 == Enums.UnitCategory.ElectricResistance && unitCategory_2 == Enums.UnitCategory.ElectricConductance)
+            {
+                return true;
+            }
+
+            if (unitCategory_1 == Enums.UnitCategory.Time && unitCategory_2 == Enums.UnitCategory.Frequency)
+            {
+                return true;
+            }
+
+            if (unitCategory_1 == Enums.UnitCategory.Frequency && unitCategory_2 == Enums.UnitCategory.Time)
+            {
+                return true;
+            }
+
+            if (unitCategory_1 == Enums.UnitCategory.ThermalResistance && unitCategory_2 == Enums.UnitCategory.ThermalTransmittance)
+            {
+                return true;
+            }
+
+            if (unitCategory_1 == Enums.UnitCategory.ThermalTransmittance && unitCategory_2 == Enums.UnitCategory.ThermalResistance)
+            {
+                return true;
+            }
+
+            if (unitCategory_1 == Enums.UnitCategory.Length && unitCategory_2 == Enums.UnitCategory.Wavenumber)
+            {
+                return true;
+            }
+
+            if (unitCategory_1 == Enums.UnitCategory.Wavenumber && unitCategory_2 == Enums.UnitCategory.Length)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Attempts to perform an inverse unit conversion (1 / baseValue) between two unit attributes.
+        /// </summary>
+        /// <param name="value">The numeric value to be converted.</param>
+        /// <param name="unitAttribute_From">The source unit attribute.</param>
+        /// <param name="unitAttribute_To">The target unit attribute.</param>
+        /// <param name="result">When this method returns, contains the converted inverse value if successful; otherwise, null.</param>
+        /// <returns>True if the conversion was successful; otherwise, false.</returns>
+        public static bool TryConvertInverse(double value, UnitAttribute? unitAttribute_From, UnitAttribute? unitAttribute_To, out double? result)
+        {
+            result = null;
+
+            if (unitAttribute_From is null || unitAttribute_To is null)
+            {
+                return false;
+            }
+
+            try
+            {
+                double double_BaseValue = unitAttribute_From.From(value);
+                if (double.IsNaN(double_BaseValue) || double.IsInfinity(double_BaseValue) || Math.Abs(double_BaseValue) < double.Epsilon)
+                {
+                    return false;
+                }
+
+                double double_InverseBaseValue = 1.0 / double_BaseValue;
+                double double_FinalValue = unitAttribute_To.To(double_InverseBaseValue);
+                if (double.IsNaN(double_FinalValue) || double.IsInfinity(double_FinalValue))
+                {
+                    return false;
+                }
+
+                result = double_FinalValue;
+                return true;
+            }
+            catch
+            {
+            }
+
+            return false;
         }
     }
 }

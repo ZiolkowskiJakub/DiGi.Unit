@@ -154,6 +154,100 @@ Kilogram per cubic meter \(kg/m3\)\.
 
 Gram per cubic centimeter \(g/cm3\)\.
 
+<a name='DiGi.Unit.Enums.ElectricConductanceUnit'></a>
+
+## ElectricConductanceUnit Enum
+
+Defines the supported units for electric conductance measurement\.
+
+```csharp
+public enum ElectricConductanceUnit
+```
+### Fields
+
+<a name='DiGi.Unit.Enums.ElectricConductanceUnit.Siemens'></a>
+
+`Siemens` 0
+
+Siemens unit of electric conductance \(SI derived unit\)\.
+
+<a name='DiGi.Unit.Enums.ElectricConductanceUnit.Millisiemens'></a>
+
+`Millisiemens` 1
+
+Millisiemens unit of electric conductance\.
+
+<a name='DiGi.Unit.Enums.ElectricConductanceUnit.Microsiemens'></a>
+
+`Microsiemens` 2
+
+Microsiemens unit of electric conductance\.
+
+<a name='DiGi.Unit.Enums.ElectricConductanceUnit.Kilosiemens'></a>
+
+`Kilosiemens` 3
+
+Kilosiemens unit of electric conductance\.
+
+<a name='DiGi.Unit.Enums.ElectricConductanceUnit.Megasiemens'></a>
+
+`Megasiemens` 4
+
+Megasiemens unit of electric conductance\.
+
+<a name='DiGi.Unit.Enums.ElectricConductivityUnit'></a>
+
+## ElectricConductivityUnit Enum
+
+Represents units of measurement for electrical conductivity, measured in Siemens per meter\.
+
+```csharp
+public enum ElectricConductivityUnit
+```
+### Fields
+
+<a name='DiGi.Unit.Enums.ElectricConductivityUnit.SiemensPerMeter'></a>
+
+`SiemensPerMeter` 0
+
+Siemens per meter \(S/m\)\.
+
+<a name='DiGi.Unit.Enums.ElectricConductivityUnit.MillisiemensPerMeter'></a>
+
+`MillisiemensPerMeter` 1
+
+Millisiemens per meter \(mS/m\)\.
+
+<a name='DiGi.Unit.Enums.ElectricConductivityUnit.MicrosiemensPerMeter'></a>
+
+`MicrosiemensPerMeter` 2
+
+Microsiemens per meter \(µS/m\)\.
+
+<a name='DiGi.Unit.Enums.ElectricConductivityUnit.KilosiemensPerMeter'></a>
+
+`KilosiemensPerMeter` 3
+
+Kilosiemens per meter \(kS/m\)\.
+
+<a name='DiGi.Unit.Enums.ElectricConductivityUnit.MegasiemensPerMeter'></a>
+
+`MegasiemensPerMeter` 4
+
+Megasiemens per meter \(MS/m\)\.
+
+<a name='DiGi.Unit.Enums.ElectricConductivityUnit.MicrosiemensPerCentimeter'></a>
+
+`MicrosiemensPerCentimeter` 5
+
+Microsiemens per centimeter \(µS/cm\)\.
+
+<a name='DiGi.Unit.Enums.ElectricConductivityUnit.MillisiemensPerCentimeter'></a>
+
+`MillisiemensPerCentimeter` 6
+
+Millisiemens per centimeter \(mS/cm\)\.
+
 <a name='DiGi.Unit.Enums.ElectricCurrentUnit'></a>
 
 ## ElectricCurrentUnit Enum
@@ -780,6 +874,64 @@ The Fahrenheit scale for temperature\.
 
 The Kelvin scale for temperature\.
 
+<a name='DiGi.Unit.Enums.ThermalResistanceUnit'></a>
+
+## ThermalResistanceUnit Enum
+
+Defines the supported units for thermal resistance measurement \(R\-value\)\.
+
+```csharp
+public enum ThermalResistanceUnit
+```
+### Fields
+
+<a name='DiGi.Unit.Enums.ThermalResistanceUnit.SquareMeterKelvinPerWatt'></a>
+
+`SquareMeterKelvinPerWatt` 0
+
+Square meter kelvin per watt \(m2K/W\)\.
+
+<a name='DiGi.Unit.Enums.ThermalResistanceUnit.SquareMeterDegreeCelsiusPerWatt'></a>
+
+`SquareMeterDegreeCelsiusPerWatt` 1
+
+Square meter degree celsius per watt \(m2°C/W\)\.
+
+<a name='DiGi.Unit.Enums.ThermalResistanceUnit.SquareFootHourDegreeFahrenheitPerBtu'></a>
+
+`SquareFootHourDegreeFahrenheitPerBtu` 2
+
+Square foot hour degree fahrenheit per BTU \(ft2 hr °F/BTU\)\.
+
+<a name='DiGi.Unit.Enums.ThermalTransmittanceUnit'></a>
+
+## ThermalTransmittanceUnit Enum
+
+Defines the supported units for thermal transmittance measurement \(U\-value\)\.
+
+```csharp
+public enum ThermalTransmittanceUnit
+```
+### Fields
+
+<a name='DiGi.Unit.Enums.ThermalTransmittanceUnit.WattPerSquareMeterKelvin'></a>
+
+`WattPerSquareMeterKelvin` 0
+
+Watt per square meter kelvin \(W/m2K\)\.
+
+<a name='DiGi.Unit.Enums.ThermalTransmittanceUnit.WattPerSquareMeterDegreeCelsius'></a>
+
+`WattPerSquareMeterDegreeCelsius` 1
+
+Watt per square meter degree celsius \(W/m2°C\)\.
+
+<a name='DiGi.Unit.Enums.ThermalTransmittanceUnit.BtuPerHourSquareFootDegreeFahrenheit'></a>
+
+`BtuPerHourSquareFootDegreeFahrenheit` 2
+
+BTU per hour square foot degree fahrenheit \(BTU/hr ft2 °F\)\.
+
 <a name='DiGi.Unit.Enums.TimeUnit'></a>
 
 ## TimeUnit Enum
@@ -832,141 +984,171 @@ The unit category is undefined\.
 
 Units related to length measurement\.
 
+<a name='DiGi.Unit.Enums.UnitCategory.Wavenumber'></a>
+
+`Wavenumber` 2
+
+Units related to wavenumber measurement\.
+
 <a name='DiGi.Unit.Enums.UnitCategory.Area'></a>
 
-`Area` 2
+`Area` 3
 
 Units related to area measurement\.
 
 <a name='DiGi.Unit.Enums.UnitCategory.Volume'></a>
 
-`Volume` 3
+`Volume` 4
 
 Units related to volume measurement\.
 
 <a name='DiGi.Unit.Enums.UnitCategory.Temperature'></a>
 
-`Temperature` 4
+`Temperature` 5
 
 Units related to temperature measurement\.
 
+<a name='DiGi.Unit.Enums.UnitCategory.ThermalResistance'></a>
+
+`ThermalResistance` 6
+
+Units related to thermal resistance measurement\.
+
+<a name='DiGi.Unit.Enums.UnitCategory.ThermalTransmittance'></a>
+
+`ThermalTransmittance` 7
+
+Units related to thermal transmittance measurement\.
+
 <a name='DiGi.Unit.Enums.UnitCategory.Time'></a>
 
-`Time` 5
+`Time` 8
 
 Units related to time measurement\.
 
 <a name='DiGi.Unit.Enums.UnitCategory.PowerDensity'></a>
 
-`PowerDensity` 6
+`PowerDensity` 9
 
 Units related to power density measurement\.
 
 <a name='DiGi.Unit.Enums.UnitCategory.Density'></a>
 
-`Density` 7
+`Density` 10
 
 Units related to density measurement\.
 
 <a name='DiGi.Unit.Enums.UnitCategory.Angle'></a>
 
-`Angle` 8
+`Angle` 11
 
 Units related to angle measurement\.
 
 <a name='DiGi.Unit.Enums.UnitCategory.Mass'></a>
 
-`Mass` 9
+`Mass` 12
 
 Units related to mass measurement\.
 
 <a name='DiGi.Unit.Enums.UnitCategory.ElectricCurrent'></a>
 
-`ElectricCurrent` 10
+`ElectricCurrent` 13
 
 Units related to electric current measurement\.
 
 <a name='DiGi.Unit.Enums.UnitCategory.AmountOfSubstance'></a>
 
-`AmountOfSubstance` 11
+`AmountOfSubstance` 14
 
 Units related to amount of substance measurement\.
 
 <a name='DiGi.Unit.Enums.UnitCategory.LuminousIntensity'></a>
 
-`LuminousIntensity` 12
+`LuminousIntensity` 15
 
 Units related to luminous intensity measurement\.
 
 <a name='DiGi.Unit.Enums.UnitCategory.Force'></a>
 
-`Force` 13
+`Force` 16
 
 Units related to force measurement\.
 
 <a name='DiGi.Unit.Enums.UnitCategory.Pressure'></a>
 
-`Pressure` 14
+`Pressure` 17
 
 Units related to pressure measurement\.
 
 <a name='DiGi.Unit.Enums.UnitCategory.Energy'></a>
 
-`Energy` 15
+`Energy` 18
 
 Units related to energy measurement\.
 
 <a name='DiGi.Unit.Enums.UnitCategory.Power'></a>
 
-`Power` 16
+`Power` 19
 
 Units related to power measurement\.
 
 <a name='DiGi.Unit.Enums.UnitCategory.ElectricPotential'></a>
 
-`ElectricPotential` 17
+`ElectricPotential` 20
 
 Units related to electric potential measurement\.
 
 <a name='DiGi.Unit.Enums.UnitCategory.ElectricResistance'></a>
 
-`ElectricResistance` 18
+`ElectricResistance` 21
 
 Units related to electric resistance measurement\.
 
+<a name='DiGi.Unit.Enums.UnitCategory.ElectricConductance'></a>
+
+`ElectricConductance` 22
+
+Units related to electric conductance measurement\.
+
+<a name='DiGi.Unit.Enums.UnitCategory.ElectricConductivity'></a>
+
+`ElectricConductivity` 23
+
+Units related to electric conductivity measurement\.
+
 <a name='DiGi.Unit.Enums.UnitCategory.Frequency'></a>
 
-`Frequency` 19
+`Frequency` 24
 
 Units related to frequency measurement\.
 
 <a name='DiGi.Unit.Enums.UnitCategory.Speed'></a>
 
-`Speed` 20
+`Speed` 25
 
 Units related to speed measurement\.
 
 <a name='DiGi.Unit.Enums.UnitCategory.Acceleration'></a>
 
-`Acceleration` 21
+`Acceleration` 26
 
 Units related to acceleration measurement\.
 
 <a name='DiGi.Unit.Enums.UnitCategory.LuminousFlux'></a>
 
-`LuminousFlux` 22
+`LuminousFlux` 27
 
 Units related to luminous flux measurement\.
 
 <a name='DiGi.Unit.Enums.UnitCategory.Illuminance'></a>
 
-`Illuminance` 23
+`Illuminance` 28
 
 Units related to illuminance measurement\.
 
 <a name='DiGi.Unit.Enums.UnitCategory.Other'></a>
 
-`Other` 24
+`Other` 29
 
 Other unit categories not explicitly defined\.
 
@@ -1033,3 +1215,38 @@ Represents a volume in cubic meters\.
 `CubicKilometer` 2
 
 Represents a volume in cubic kilometers\.
+
+<a name='DiGi.Unit.Enums.WavenumberUnit'></a>
+
+## WavenumberUnit Enum
+
+Defines the supported units for wavenumber measurement \(spatial frequency\)\.
+
+```csharp
+public enum WavenumberUnit
+```
+### Fields
+
+<a name='DiGi.Unit.Enums.WavenumberUnit.ReciprocalMeter'></a>
+
+`ReciprocalMeter` 0
+
+Reciprocal meter \(1/m\)\.
+
+<a name='DiGi.Unit.Enums.WavenumberUnit.ReciprocalCentimeter'></a>
+
+`ReciprocalCentimeter` 1
+
+Reciprocal centimeter \(1/cm\)\.
+
+<a name='DiGi.Unit.Enums.WavenumberUnit.ReciprocalMillimeter'></a>
+
+`ReciprocalMillimeter` 2
+
+Reciprocal millimeter \(1/mm\)\.
+
+<a name='DiGi.Unit.Enums.WavenumberUnit.ReciprocalMicrometer'></a>
+
+`ReciprocalMicrometer` 3
+
+Reciprocal micrometer \(1/µm\)\.

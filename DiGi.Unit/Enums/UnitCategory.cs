@@ -19,6 +19,11 @@ namespace DiGi.Unit.Enums
         [Description("Length")] Length,
 
         /// <summary>
+        /// Units related to wavenumber measurement.
+        /// </summary>
+        [Description("Wavenumber")] Wavenumber,
+
+        /// <summary>
         /// Units related to area measurement.
         /// </summary>
         [Description("Area")] Area,
@@ -32,6 +37,16 @@ namespace DiGi.Unit.Enums
         /// Units related to temperature measurement.
         /// </summary>
         [Description("Temperature")] Temperature,
+
+        /// <summary>
+        /// Units related to thermal resistance measurement.
+        /// </summary>
+        [Description("Thermal Resistance")] ThermalResistance,
+
+        /// <summary>
+        /// Units related to thermal transmittance measurement.
+        /// </summary>
+        [Description("Thermal Transmittance")] ThermalTransmittance,
 
         /// <summary>
         /// Units related to time measurement.
@@ -102,6 +117,16 @@ namespace DiGi.Unit.Enums
         /// Units related to electric resistance measurement.
         /// </summary>
         [Description("Electric Resistance")] ElectricResistance,
+
+        /// <summary>
+        /// Units related to electric conductance measurement.
+        /// </summary>
+        [Description("Electric Conductance")] ElectricConductance,
+
+        /// <summary>
+        /// Units related to electric conductivity measurement.
+        /// </summary>
+        [Description("Electric Conductivity")] ElectricConductivity,
 
         /// <summary>
         /// Units related to frequency measurement.
