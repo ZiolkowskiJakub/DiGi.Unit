@@ -6,5 +6,6 @@
     <File Path="Directory.Build.targets" />
   </Folder>
   <Project Path="DiGi.Unit.IO/DiGi.Unit.IO.csproj" Id="97487227-313d-42d6-9d57-d0c0afb66e12" />
+  <Project Path="DiGi.Unit.Parameter/DiGi.Unit.Parameter.csproj" />
   <Project Path="DiGi.Unit/DiGi.Unit.csproj" />
 </Solution>
