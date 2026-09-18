@@ -519,6 +519,23 @@ Inheritance [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system
 Implements [DiGi\.Core\.Interfaces\.INamedObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.inamedobject 'DiGi\.Core\.Interfaces\.INamedObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject')
 ### Constructors
 
+<a name='DiGi.Unit.Classes.Unit.Unit(DiGi.Unit.Classes.Unit)'></a>
+
+## Unit\(Unit\) Constructor
+
+Initializes a new instance of the [Unit](DiGi.Unit.Classes.md#DiGi.Unit.Classes.Unit 'DiGi\.Unit\.Classes\.Unit') class by copying another instance\.
+
+```csharp
+public Unit(DiGi.Unit.Classes.Unit? unit);
+```
+#### Parameters
+
+<a name='DiGi.Unit.Classes.Unit.Unit(DiGi.Unit.Classes.Unit).unit'></a>
+
+`unit` [Unit](DiGi.Unit.Classes.md#DiGi.Unit.Classes.Unit 'DiGi\.Unit\.Classes\.Unit')
+
+The source unit to copy from\.
+
 <a name='DiGi.Unit.Classes.Unit.Unit(System.Enum)'></a>
 
 ## Unit\(Enum\) Constructor
@@ -526,7 +543,7 @@ Implements [DiGi\.Core\.Interfaces\.INamedObject](https://learn.microsoft.com/en
 Initializes a new instance of the [Unit](DiGi.Unit.Classes.md#DiGi.Unit.Classes.Unit 'DiGi\.Unit\.Classes\.Unit') class with the specified enumeration value\.
 
 ```csharp
-public Unit(System.Enum @enum);
+public Unit(System.Enum? @enum);
 ```
 #### Parameters
 
@@ -535,6 +552,23 @@ public Unit(System.Enum @enum);
 `enum` [System\.Enum](https://learn.microsoft.com/en-us/dotnet/api/system.enum 'System\.Enum')
 
 The enumeration value representing the unit\.
+
+<a name='DiGi.Unit.Classes.Unit.Unit(System.Text.Json.Nodes.JsonObject)'></a>
+
+## Unit\(JsonObject\) Constructor
+
+Initializes a new instance of the [Unit](DiGi.Unit.Classes.md#DiGi.Unit.Classes.Unit 'DiGi\.Unit\.Classes\.Unit') class from a JSON object\.
+
+```csharp
+public Unit(System.Text.Json.Nodes.JsonObject? jsonObject);
+```
+#### Parameters
+
+<a name='DiGi.Unit.Classes.Unit.Unit(System.Text.Json.Nodes.JsonObject).jsonObject'></a>
+
+`jsonObject` [System\.Text\.Json\.Nodes\.JsonObject](https://learn.microsoft.com/en-us/dotnet/api/system.text.json.nodes.jsonobject 'System\.Text\.Json\.Nodes\.JsonObject')
+
+The JSON object containing unit data\.
 ### Properties
 
 <a name='DiGi.Unit.Classes.Unit.CategoryAttribute'></a>
@@ -557,11 +591,24 @@ public DiGi.Unit.Classes.CategoryAttribute? CategoryAttribute { get; }
 Gets the underlying enumeration value of this unit\.
 
 ```csharp
-public System.Enum Enum { get; }
+public System.Enum? Enum { get; }
 ```
 
 #### Property Value
 [System\.Enum](https://learn.microsoft.com/en-us/dotnet/api/system.enum 'System\.Enum')
+
+<a name='DiGi.Unit.Classes.Unit.EnumType'></a>
+
+## Unit\.EnumType Property
+
+Gets the full type name of the underlying enumeration\.
+
+```csharp
+public string? EnumType { get; }
+```
+
+#### Property Value
+[System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
 
 <a name='DiGi.Unit.Classes.Unit.Name'></a>
 

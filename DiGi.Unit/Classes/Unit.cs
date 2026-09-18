@@ -1,6 +1,9 @@
 using DiGi.Core.Classes;
 using DiGi.Core.Interfaces;
 using DiGi.Unit.Enums;
+using System;
+using System.Collections.Generic;
+using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;
 
 namespace DiGi.Unit.Classes
@@ -11,7 +14,10 @@ namespace DiGi.Unit.Classes
     public class Unit : SerializableObject, INamedObject
     {
         [JsonInclude, JsonPropertyName(nameof(Enum))]
-        private readonly System.Enum @enum;
+        private readonly System.Enum? @enum;
+
+        [JsonInclude, JsonPropertyName(nameof(EnumType))]
+        private readonly string? enumType;
 
         [JsonIgnore]
         private CategoryAttribute? categoryAttribute;
@@ -23,9 +29,50 @@ namespace DiGi.Unit.Classes
         /// Initializes a new instance of the <see cref="Unit"/> class with the specified enumeration value.
         /// </summary>
         /// <param name="enum">The enumeration value representing the unit.</param>
-        public Unit(System.Enum @enum)
+        public Unit(System.Enum? @enum)
         {
             this.@enum = @enum;
+            enumType = Core.Query.FullTypeName(@enum?.GetType());
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Unit"/> class by copying another instance.
+        /// </summary>
+        /// <param name="unit">The source unit to copy from.</param>
+        public Unit(Unit? unit)
+            : base(unit)
+        {
+            if (unit != null)
+            {
+                @enum = unit.@enum;
+                enumType = unit.enumType;
+            }
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Unit"/> class from a JSON object.
+        /// </summary>
+        /// <param name="jsonObject">The JSON object containing unit data.</param>
+        public Unit(JsonObject? jsonObject)
+            : base(jsonObject)
+        {
+            if (jsonObject != null)
+            {
+                if (jsonObject.TryGetPropertyValue(nameof(EnumType), out JsonNode? jsonNode_EnumType) && jsonNode_EnumType != null)
+                {
+                    enumType = jsonNode_EnumType.GetValue<string>();
+                }
+
+                Type? type = Core.Query.Type(enumType);
+                if (type != null && jsonObject.TryGetPropertyValue(nameof(Enum), out JsonNode? jsonNode_Enum) && jsonNode_Enum != null)
+                {
+                    string? enumString = jsonNode_Enum.ToString();
+                    if (Core.Query.TryGetEnum(enumString, type, out Enum? enum_Temp) && enum_Temp != null)
+                    {
+                        @enum = enum_Temp;
+                    }
+                }
+            }
         }
 
         /// <summary>
@@ -43,11 +90,23 @@ namespace DiGi.Unit.Classes
         /// <summary>
         /// Gets the underlying enumeration value of this unit.
         /// </summary>
-        public System.Enum Enum
+        public System.Enum? Enum
         {
             get
             {
                 return @enum;
+            }
+        }
+
+        /// <summary>
+        /// Gets the full type name of the underlying enumeration.
+        /// </summary>
+        [JsonIgnore]
+        public string? EnumType
+        {
+            get
+            {
+                return enumType;
             }
         }
 
